@@ -1,19 +1,19 @@
 <project
         xmlns="http://maven.apache.org/POM/4.0.0"
-
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-http://maven.apache.org/maven-v4_0_0.xsd"
->
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.univ-avignon.tt</groupId>
     <artifactId>java-project</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>java-project</name>
-    <url> http://univ-avignon.fr </url>
+    <url>http://univ-avignon.fr</url>
+
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -28,20 +28,40 @@ http://maven.apache.org/maven-v4_0_0.xsd"
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source> <!-- Version Java source -->
+                    <target>1.8</target> <!-- Version Java target -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>3.2.0</version>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
+
+
