@@ -113,4 +113,17 @@ public class PokedexTest {
         assertEquals(mockPokemon, result);
         verify(mockPokemonFactory).createPokemon(index, cp, hp, dust, candy);
     }
+
+    @Test(expected = PokedexException.class)
+    public void testGetPokemon_InvalidId_LessThanZero() throws PokedexException {
+        pokedex.getPokemon(-1);
+    }
+
+    @Test(expected = PokedexException.class)
+    public void testGetPokemon_InvalidId_GreaterThanOrEqualToSize() throws PokedexException {
+        Pokemon pokemon = new Pokemon(1, "Pikachu", 55, 40, 35, 500, 200, 100, 200, 0.85);
+        pokedex.addPokemon(pokemon);
+
+        pokedex.getPokemon(1);
+    }
 }
