@@ -46,5 +46,6 @@ public class PokemonMetadataProviderTest {
         assertEquals(186, metadata.getAttack());
         assertEquals(168, metadata.getDefense());
         assertEquals(260, metadata.getStamina());
+
     }
 }
