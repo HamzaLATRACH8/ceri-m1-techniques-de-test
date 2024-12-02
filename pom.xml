@@ -67,8 +67,8 @@
                 <version>3.2.2</version>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <outputFile>target/checkstyle-report.html</outputFile>
-                    <outputFileFormat>html</outputFileFormat>
+                    <outputFile>target/checkstyle-report.txt</outputFile>
+                    <outputFileFormat>plain</outputFileFormat>
                     <failOnViolation>true</failOnViolation>
                 </configuration>
                 <executions>
