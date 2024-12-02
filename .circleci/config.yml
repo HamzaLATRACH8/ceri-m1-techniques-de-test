@@ -16,7 +16,7 @@ jobs:
           command: mvn checkstyle:checkstyle
       - run:
           name: Upload Checkstyle report as an artifact
-          command: mv target/checkstyle-report.html target/checkstyle-report.html
+          command: mv target/checkstyle-report.txt target/checkstyle-report.txt
       - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
