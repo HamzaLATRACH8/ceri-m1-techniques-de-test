@@ -9,14 +9,18 @@ jobs:
           name: Run Maven tests
           command: mvn clean test
       - run:
-          name: Run Checkstyle
-          command: mvn checkstyle:check
-      - run:
           name: Generate coverage report
           command: mvn jacoco:report
       - run:
+          name: Generate Checkstyle report
+          command: mvn checkstyle:checkstyle
+      - run:
+          name: Upload Checkstyle report as an artifact
+          command: mv target/checkstyle-report.html target/checkstyle-report.html
+      - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
+
 workflows:
   version: 2
   test_and_deploy:
