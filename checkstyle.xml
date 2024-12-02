@@ -19,9 +19,6 @@
     </module>
 
 
-    <module name="JavadocPackage">
-        <property name="scope" value="package"/>
-    </module>
 
     <module name="FileTabCharacter"/>
     <module name="TodoComment"/>
