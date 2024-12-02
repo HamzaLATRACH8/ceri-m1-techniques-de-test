@@ -9,6 +9,9 @@ jobs:
           name: Run Maven tests
           command: mvn clean test
       - run:
+          name: Run Checkstyle
+          command: mvn checkstyle:check
+      - run:
           name: Generate coverage report
           command: mvn jacoco:report
       - run:
