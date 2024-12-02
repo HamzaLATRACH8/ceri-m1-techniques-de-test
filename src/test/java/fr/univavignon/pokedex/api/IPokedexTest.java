@@ -86,5 +86,5 @@ public class IPokedexTest {
         assertEquals("Bulbizarre", sortedPokemons.get(0).getName());
         assertEquals("Aquali", sortedPokemons.get(1).getName());
     }
-    //////////////////////////////////
+    ///////////////////////////////////////////
 }
