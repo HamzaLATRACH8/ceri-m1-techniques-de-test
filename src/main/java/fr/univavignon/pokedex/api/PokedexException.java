@@ -5,10 +5,9 @@ package fr.univavignon.pokedex.api;
  *
  * @author fv
  */
- public final class PokedexException extends Exception {
-
-   /** Serialization index. **/
-   private static final long serialVersionUID = 1L;
+public final class PokedexException extends Exception {
+/** Serialization index. **/
+    private static final long serialVersionUID = 1L;
 
    /**
     * Default constructor.
@@ -16,8 +15,8 @@ package fr.univavignon.pokedex.api;
     * @param message Error message.
     * @see Exception#Exception(String)
     */
-   public PokedexException(final String message) {
-     super(message);
-   }
+    public PokedexException(final String message) {
+        super(message);
+    }
 
- }
+}
