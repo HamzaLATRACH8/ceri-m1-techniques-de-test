@@ -67,15 +67,16 @@
                 <version>3.2.2</version>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <outputFile>target/checkstyle-report.xml</outputFile>
+                    <encoding>UTF-8</encoding>
+                    <failsOnError>true</failsOnError>
+                    <outputFile>target/checkstyle-result.xml</outputFile>
                     <outputFileFormat>xml</outputFileFormat>
-                    <failOnViolation>true</failOnViolation>
                 </configuration>
                 <executions>
                     <execution>
                         <phase>verify</phase>
                         <goals>
-                            <goal>check</goal>
+                            <goal>checkstyle</goal>
                         </goals>
                     </execution>
                 </executions>

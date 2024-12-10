@@ -14,9 +14,9 @@ jobs:
       - run:
           name: Generate Checkstyle report
           command: mvn checkstyle:checkstyle
-      - run:
-          name: Upload Checkstyle report as an artifact
-          command: mv target/checkstyle-report.xml target/surefire-reports/checkstyle-report.xml
+      - store_artifacts:
+          path: target/checkstyle-result.xml
+          destination: checkstyle-report
       - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
