@@ -24,24 +24,6 @@ jobs:
                 root: .
                 paths:
                   - target/site/apidocs
-
-      - run:
-          name: Configure Git for GitHub Pages
-          command: |
-            git config --global user.email "your-email@example.com"
-            git config --global user.name "Your Name"
-            - run:
-                name: Create gh-pages Branch If Not Exists
-                command: |
-                  git fetch origin
-                  if ! git rev-parse --verify origin/gh-pages; then
-                    git checkout --orphan gh-pages
-                    git rm -rf .
-                    echo "Placeholder for GitHub Pages" > index.html
-                    git add index.html
-                    git commit -m "Initial commit for GitHub Pages"
-                   git push https://$GITHUB_TOKEN@github.com/MejaiWajdi/ceri-m1-techniques-de-test.git gh-pages
-                  fi
       - run:
           name: Deploy Javadoc to GitHub Pages
           command: |
