@@ -18,11 +18,43 @@ jobs:
           path: target/checkstyle-result.xml
           destination: checkstyle-report
       - run:
+          name: Generate Javadoc
+          command: mvn javadoc:javadoc
+            - persist_to_workspace:
+                root: .
+                paths:
+                  - target/site/apidocs
+      - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
+
+
+  deploy-docs:
+    docker:
+      - image: circleci/openjdk:11-jdk
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /workspace
+      - run:
+          name: Configure Git
+          command: |
+            git config --global user.email "your-email@example.com"
+            git config --global user.name "Your Name"
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            mkdir -p docs
+            cp -r /workspace/target/site/apidocs/* docs/
+            git add docs
+            git commit -m "Update Javadoc documentation"
+            git push origin main
 
 workflows:
   version: 2
   test_and_deploy:
     jobs:
       - test
+      - deploy-docs:
+          requires:
+            - test
