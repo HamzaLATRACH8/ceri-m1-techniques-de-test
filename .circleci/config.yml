@@ -42,5 +42,5 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-java
+      - test
       - generate-docs
