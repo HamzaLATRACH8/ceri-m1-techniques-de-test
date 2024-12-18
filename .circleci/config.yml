@@ -24,37 +24,45 @@ jobs:
                 root: .
                 paths:
                   - target/site/apidocs
+
+      - run:
+          name: Configure Git for GitHub Pages
+          command: |
+            git config --global user.email "your-email@example.com"
+            git config --global user.name "Your Name"
+            - run:
+                name: Create gh-pages Branch If Not Exists
+                command: |
+                  git fetch origin
+                  if ! git rev-parse --verify origin/gh-pages; then
+                    git checkout --orphan gh-pages
+                    git rm -rf .
+                    echo "Placeholder for GitHub Pages" > index.html
+                    git add index.html
+                    git commit -m "Initial commit for GitHub Pages"
+                   git push https://$GITHUB_TOKEN@github.com/MejaiWajdi/ceri-m1-techniques-de-test.git gh-pages
+                  fi
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            mkdir -p output
+            mv target/site/apidocs/* output/
+            git clone --branch gh-pages https://$hamza098@github.com/HamzaLATRACH8/ceri-m1-techniques-de-test.git gh-pages
+            cd gh-pages
+            rm -rf *
+            mv ../output/* .
+            git add .
+            git commit -m "Update Javadoc"
+            git push https://$hamza098@github.com/HamzaLATRACH8/ceri-m1-techniques-de-test.git gh-pages
       - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
 
 
-  deploy-docs:
-    docker:
-      - image: circleci/openjdk:11-jdk
-    steps:
-      - checkout
-      - attach_workspace:
-          at: /workspace
-      - run:
-          name: Configure Git
-          command: |
-            git config --global user.email "your-email@example.com"
-            git config --global user.name "Your Name"
-      - run:
-          name: Deploy Javadoc to GitHub Pages
-          command: |
-            mkdir -p docs
-            cp -r /workspace/target/site/apidocs/* docs/
-            git add docs
-            git commit -m "Update Javadoc documentation"
-            git push origin main
+
 
 workflows:
-  version: 2
-  test_and_deploy:
+  build-and-test:
     jobs:
-      - test
-      - deploy-docs:
-          requires:
-            - test
+      - test-java
+      - generate-docs
