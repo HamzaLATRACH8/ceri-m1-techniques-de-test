@@ -43,4 +43,3 @@ workflows:
   build-and-test:
     jobs:
       - test
-      - generate-docs
