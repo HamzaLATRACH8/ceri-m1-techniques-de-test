@@ -17,4 +17,5 @@ public class PokemonFactory implements IPokemonFactory {
 
         return new Pokemon(index, "PokemonName", attackIv, defenseIv, staminaIv, cp, hp, dust, candy, iv);
     }
+
 }
