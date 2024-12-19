@@ -6,7 +6,8 @@ GROUPE : ILSEN CLA Gr1
 
 [![codecov](https://codecov.io/gh/HamzaLATRACH8/ceri-m1-techniques-de-test/graph/badge.svg?token=24VXFR4YNZ)](https://codecov.io/gh/HamzaLATRACH8/ceri-m1-techniques-de-test)
 
-![Checkstyle Badge](https://img.shields.io/badge/Checkstyle-Passed-brightgreen)(https://app.circleci.com/pipelines/github/HamzaLATRACH8/ceri-m1-techniques-de-test/75/workflows/6fdf2c17-e226-4e21-8cdf-2959d4e5746f/jobs/62/artifacts)
+[![Checkstyle Badge](https://img.shields.io/badge/Checkstyle-Passed-brightgreen)](https://app.circleci.com/pipelines/github/HamzaLATRACH8/ceri-m1-techniques-de-test/75/workflows/6fdf2c17-e226-4e21-8cdf-2959d4e5746f/jobs/62/artifacts)
+
 
 [![Javadoc](https://img.shields.io/badge/docs-Javadoc-brightgreen)]([https://github.com/HamzaLATRACH8/ceri-m1-techniques-de-test](https://hamzalatrach8.github.io/ceri-m1-techniques-de-test/fr/univavignon/pokedex/api/package-summary.html))
 
