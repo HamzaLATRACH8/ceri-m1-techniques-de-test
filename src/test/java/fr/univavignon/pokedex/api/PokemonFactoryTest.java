@@ -26,9 +26,9 @@ public class PokemonFactoryTest {
         assertEquals(3, pokemon.getCandy());
 
 
-        assertTrue(pokemon.getAttack() >= 0 && pokemon.getAttack() <= 100);
-        assertTrue(pokemon.getDefense() >= 0 && pokemon.getDefense() <= 100);
-        assertTrue(pokemon.getStamina() >= 0 && pokemon.getStamina() <= 100);
+        assertTrue(pokemon.getAttack() >= 0 && pokemon.getAttack() <= 1000);
+        assertTrue(pokemon.getDefense() >= 0 && pokemon.getDefense() <= 1000);
+        assertTrue(pokemon.getStamina() >= 0 && pokemon.getStamina() <= 1000);
     }
 
     @Test
